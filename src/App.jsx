@@ -1,18 +1,33 @@
+import { useState } from "react";
 import Castle from "./compomnents/01_Castle"
 
+// state variable vs standand JS variable ( var, let, const)
+// In React wc can use useState ( a React Hook or built-in function/method) to create a state variable
 
 export default function App() {
+  const [question, setQuestion] = useState("");
+
+  const handleQuestion = (e) => {
+    setQuestion(e.target.value);
+  };
+
   return (
-    <div>
+    <div className="pb-80 py-10 gap-y-4 flex flex-col justify-center items-center min-h-screen bg-gray-800 text-white">
       <h1>Learn React with Castle Rooms</h1>
       <p>Message for the Secret Room</p>
-      <textarea name="" id=""></textarea>
-      <p>
-        waiting for the a message...
+      <textarea
+        name=""
+        id=""
+        value={question}
+        onChange={handleQuestion}
+        className="tetx-blck px-2 py-1 bg-white text-black">
+      </textarea>
+      <p className="text-yellow-300">
+        {question ? `✅ ${question}` : "⌛️ waiting for the a message..."}
       </p>
-      <p>Reply from the Secret Room:</p>
-      <p>Waiting for a reply...</p>
-      <Castle/>
+      <p className="text-green-300">Reply from the Secret Room:</p>
+      <p className="text-yellow-300">Waiting for a reply...</p>
+      <Castle />
     </div>
   );
 }
