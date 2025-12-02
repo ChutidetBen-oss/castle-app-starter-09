@@ -6,11 +6,15 @@ import Castle from "./compomnents/01_Castle"
 
 export default function App() {
   const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+
 
   const handleQuestion = (e) => {
     setQuestion(e.target.value);
   };
-
+  const handAnswer = (e) => {
+    setAnswer(e.target.value);
+  };
   return (
     <div className="pb-80 py-10 gap-y-4 flex flex-col justify-center items-center min-h-screen bg-gray-600 text-white">
       <h1>Learn React with Castle Rooms</h1>
@@ -26,8 +30,8 @@ export default function App() {
         {question ? `✅ ${question}` : "⌛️ waiting for the a message..."}
       </p>
       <p className="text-green-300">Reply from the Secret Room:</p>
-      <p className="text-yellow-300">Waiting for a reply...</p>
-      <Castle question = {question} />
+      <p className="text-yellow-300">{answer ? answer : `Waiting for a reply...`}</p>
+      <Castle question={question} answer={answer} handAnswer={handAnswer}/>
     </div>
   );
 }
