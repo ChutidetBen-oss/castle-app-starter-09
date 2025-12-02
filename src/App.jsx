@@ -12,9 +12,9 @@ export default function App() {
   };
 
   return (
-    <div className="pb-80 py-10 gap-y-4 flex flex-col justify-center items-center min-h-screen bg-gray-800 text-white">
+    <div className="pb-80 py-10 gap-y-4 flex flex-col justify-center items-center min-h-screen bg-gray-600 text-white">
       <h1>Learn React with Castle Rooms</h1>
-      <p>Message for the Secret Room</p>
+      <p className="text-purple-300">Message for the Secret Room ✉️ 🥷</p>
       <textarea
         name=""
         id=""
@@ -27,7 +27,7 @@ export default function App() {
       </p>
       <p className="text-green-300">Reply from the Secret Room:</p>
       <p className="text-yellow-300">Waiting for a reply...</p>
-      <Castle />
+      <Castle question = {question} />
     </div>
   );
 }
