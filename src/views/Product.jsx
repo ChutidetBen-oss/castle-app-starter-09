@@ -1,8 +1,30 @@
-export default function Products() {
-return(
-    <div>
-        <h1>Products </h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores dicta dolor in exercitationem ad recusandae deserunt ea voluptatem facilis asperiores impedit, iusto ut pariatur totam consequatur nulla tenetur amet! Ratione.</p>
-    </div>
-)
+import { useNavigate } from "react-router-dom";
+import {products}from "../data/products";
+
+export default function Products(){
+
+    const navigate = useNavigate()
+
+    const handleViewDetails = (productId) =>{
+        navigate(`/products/${productId}`);
+    }
+    return(
+        <div className="p-4 bg-white rounded-md shodow-md">
+            <h1 className="text-2xl font-bold mb-4">Products</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {products.map((product)=>(
+                    <div key={product.id} className="border p-4 rounded-md hover:shadow-lg transition">
+                        <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+                        <p className="text-gray-600 mb-4">{product.description}</p>
+                        <p className="text-gray-600 mb-4">ID: {product.id}</p>
+                        <button
+                            onClick={()=> handleViewDetails(product.id)}
+                            className="text-white bg-amber-800 px-4 py-2 rounded-md hover:bg-pink-600">
+                            View Detail
+                        </button>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
