@@ -5,6 +5,7 @@ import Contact from "./views/Contact";
 import Products from "./views/Product";
 import ProductDetail from "./views/ProductDetial";
 import Home from "./views/Home";
+import FetchAPI_EmptyArray from "./views/FetchAPI_EmptyArray";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "products", element: <Products /> },
       { path: "products/:productId", element: <ProductDetail /> },
+      { path: "FetchAPI_EmptyArray", element: <FetchAPI_EmptyArray /> },
     ],
   },
 ]);
