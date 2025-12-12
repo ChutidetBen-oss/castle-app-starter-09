@@ -1,4 +1,8 @@
-export default function SecretRoom({ question, answer, handAnswer }) {
+import { useContext } from "react";
+import { MassageContext } from "../context/MassageContext";
+
+export default function SecretRoom() {
+    const {question, answer , handAnswer}= useContext(MassageContext);
     return (
         <div className=" w-[90%] flex flex-col justify-center items-center pt-10 bg-stone-500 ">
             <h1>Secret Room</h1>
